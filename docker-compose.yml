@@ -12,6 +12,7 @@ services:
       DATABASE_PORT: 5432
       DATABASE_USER: postgres
       DATABASE_PASSWORD: postgres
+      # DUMP_PARAMS: "1"
     depends_on:
       - db
     volumes:
