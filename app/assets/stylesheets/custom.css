@@ -1,14 +1,11 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/* variables */
 
-/* mixins, variables, etc. */
-
-$gray-medium-light: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+:root {
+    --gray-darker: #222222;
+    --gray: #555555;
+    --gray-light: #777777;
+    --gray-medium-light: #eaeaea;
+    --gray-lighter: #eeeeee;
 }
 
 /* override */
@@ -69,7 +66,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
+  color: var(--gray-light);
 }
 
 p {
@@ -106,12 +103,12 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  border-top: 1px solid var(--gray-medium-light);
+  color: var(--gray-light);
   a {
-    color: $gray;
+    color: var(--gray);
     &:hover {
-      color: $gray-darker;
+      color: var(--gray-darker);
     }
   }
   small {
@@ -159,7 +156,7 @@ footer {
 aside {
   section.user_info {
     margin-top: 20px;
-    border: solid 1px $gray-lighter;
+    border: solid 1px var(--gray-lighter);
     padding: 20px 15px;
   }
   section {
@@ -196,7 +193,7 @@ aside {
   a {
     float: left;
     padding: 15px;
-    border-left: 1px solid $gray-lighter;
+    border-left: 1px solid var(--gray-lighter);
     color: gray;
     &:first-child {
       border: 0;
@@ -211,7 +208,7 @@ aside {
   }
 }
 div.stats {
-  border: 1px solid $gray-lighter;
+  border: 1px solid var(--gray-lighter);
   border-top: 0;
 }
 
@@ -236,7 +233,7 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
-  @include box_sizing;
+  box-sizing: border-box;
 }
 
 input {
@@ -252,9 +249,8 @@ input {
 }
 
 .field_with_errors {
-  @extend .has-error;
   .form-control {
-    color: $state-danger-text;
+    color: var(--state-danger-text);
   }
 }
 
@@ -286,7 +282,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid var(--gray-lighter);
   }
 }
 
@@ -312,7 +308,7 @@ input {
     }
   }
   .timestamp {
-    color: $gray-light;
+    color: var(--gray-light);
     display: block;
     margin-left: 60px;
   }
