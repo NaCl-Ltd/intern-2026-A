@@ -10,6 +10,8 @@ vendor/cache/*
 # Ignore sqlite3 db files.
 db/*.sqlite3*
 
+/storage/*
+
 config/database.yml
 
 config/settings.local.yml

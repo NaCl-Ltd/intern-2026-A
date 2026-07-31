@@ -1,4 +1,4 @@
-# インターン2025
+# インターンシップ 2026
 
 これは次の教材で作られたサンプルアプリケーションです。
 [*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
@@ -24,39 +24,40 @@ $ cp config/database.docker.yml config/database.yml
 以下のコマンドを実行してイメージを構築します。
 
 ```
-$ docker-compose build
+$ docker compose build
 ```
 
 データベースの作成とマイグレーションを行います。
 
 ```
-$ docker-compose run app bundle exec rails db:create
-$ docker-compose run app bundle exec rails db:migrate
+$ docker compose run app bundle exec rails db:create
+$ docker compose run app bundle exec rails db:migrate
 ```
 
 テストを実行してうまく動作するかどうか確認します。
 
 ```
-$ docker-compose run app bundle exec rails test
+$ docker compose run app bundle exec rails test
 ```
 
 テストが無事パスしたら初期データを投入してRailsサーバを立ち上げます。
 
 ```
-$ docker-compose run app bundle exec rails db:seed
-$ docker-compose up
+$ docker compose run app bundle exec rails db:seed
+$ docker compose up
 ```
 
 ### ローカル環境で動かす場合
 
-このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
-その後、次のコマンドで必要になるライブラリをインストールします。
+あらかじめ Ruby 4.0.x をインストールしておいてください。
+
+次に、以下のコマンドで必要になるライブラリをインストールします。
 
 ```
 $ sudo apt install sqlite3 libsqlite3-dev
 ```
 
-次に以下のコマンドで必要になる RubyGems をインストールします。
+アプリケーションで利用する RubyGems をインストールします。
 
 ```
 $ bundle install --without production
