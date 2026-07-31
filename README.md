@@ -59,7 +59,6 @@ $ sudo apt install sqlite3 libsqlite3-dev
 次に以下のコマンドで必要になる RubyGems をインストールします。
 
 ```
-$ gem install bundler -v 2.3.14
 $ bundle install --without production
 ```
 
