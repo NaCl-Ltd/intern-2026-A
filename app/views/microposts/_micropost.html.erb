@@ -14,9 +14,9 @@
       <% if micropost.pinned? %>
         <%= link_to "unpin", unpin_micropost_path(micropost), data: { "turbo-method": :patch, turbo_confirm: "You are unpinning this micropost. Sure?" } %>
       <% else %>
-        <%= link_to "pin", pin_micropost_path(micropost), data: { "turbo-method": :patch, turbo_confirm: "You are pinning this micropost. Sure?" } %>
+        <%= link_to "pin", pin_micropost_path(micropost), data: { "turbo-method": :patch, turbo_confirm: "You are pinning this micropost. If there is already a pinned micropost, it will be unpinned. Sure?" } %>
       <% end %>
-      <%= link_to "delete", micropost, data: { "turbo-method": :delete, turbo_confirm: "You are DELETING this micropost. Sure?" } %>
+      <%= link_to "delete", micropost, data: { "turbo-method": :delete, turbo_confirm: "You are DELETING this micropost. This action can NOT be undone. Continue?" } %>
     <% end %>
   </span>
 </li>
