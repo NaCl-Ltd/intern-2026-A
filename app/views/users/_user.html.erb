@@ -4,7 +4,6 @@
   <p class="user-introduction"><%= user.introduction %></p>
   <p>Following: <%= user.following.count %> Followers: <%= user.followers.count %> </p>
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, data: { "turbo-method": :delete,
-                                          turbo_confirm: "You sure?" } %>
+      <%= link_to "delete", user, data: { "turbo-method": :delete, turbo_confirm: "Sure?" } %>
   <% end %>
 </li>

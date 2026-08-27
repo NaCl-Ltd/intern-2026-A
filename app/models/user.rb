@@ -88,9 +88,14 @@ class User < ApplicationRecord
   def feed
     following_ids = "SELECT followed_id FROM relationships
                      WHERE  follower_id = :user_id"
-    Micropost.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
-             .includes(:user, image_attachment: :blob)
+    posts = Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id).includes(:user, image_attachment: :blob)
+    pinned = Micropost.sanitize_sql_for_conditions(["case when microposts.id = ? then 0 else 1 end", pinned_micropost&.id])
+    posts.reorder(Arel.sql(pinned)).order(created_at: :desc)
+  end
+
+  # ユーザーのピンされたマイクロポストを返す
+  def pinned_micropost
+    microposts.find_by(pinned: true)
   end
 
   # ユーザーをフォローする
