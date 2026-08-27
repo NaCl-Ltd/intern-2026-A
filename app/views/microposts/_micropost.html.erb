@@ -11,8 +11,11 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user?(micropost.user) %>
-      <%= link_to micropost.pinned? ? "" : "pin", pin_micropost_path(micropost), data: { "turbo-method": :patch, turbo_confirm: "You are pinning this micropost. Sure?" } %>
-      <%= link_to micropost.pinned? ? "unpin" : "", unpin_micropost_path(micropost), data: { "turbo-method": :patch, turbo_confirm: "You are unpinning this micropost. Sure?" } %>
+      <% if micropost.pinned? %>
+        <%= link_to "unpin", unpin_micropost_path(micropost), data: { "turbo-method": :patch, turbo_confirm: "You are unpinning this micropost. Sure?" } %>
+      <% else %>
+        <%= link_to "pin", pin_micropost_path(micropost), data: { "turbo-method": :patch, turbo_confirm: "You are pinning this micropost. Sure?" } %>
+      <% end %>
       <%= link_to "delete", micropost, data: { "turbo-method": :delete, turbo_confirm: "You are DELETING this micropost. Sure?" } %>
     <% end %>
   </span>
