@@ -24,6 +24,17 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def pin
+    pinned_micropost = current_user.pinned_micropost
+    pinned_micropost.update(pinned: false) if pinned_micropost.present?
+    micropost = current_user.microposts.find_by(id: params[:id])
+    micropost.update(pinned: true)
+
+    redirect_to request.referrer
+  end
+
+
+
   private
 
     def micropost_params
