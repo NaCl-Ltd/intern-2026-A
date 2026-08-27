@@ -30,6 +30,7 @@
 
 body {
   padding-top: 80px;
+  /* background-color: #111111; */
 }
 
 section {
@@ -156,7 +157,7 @@ footer {
 aside {
   section.user_info {
     margin-top: 20px;
-    border: solid 1px var(--gray-lighter);
+    border: solid 1px var(--gray-lightr);
     padding: 20px 15px;
   }
   section {
