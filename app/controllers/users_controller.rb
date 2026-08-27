@@ -10,7 +10,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+
+    pinned_micropost = @user.pinned_micropost
+
+
+    # @microposts = @pinned_microposts
+
+    posts = Micropost.where(user_id: @user.id).includes(:user, image_attachment: :blob)
+    pinned = Micropost.sanitize_sql_for_conditions(["case when microposts.id = ? then 0 else 1 end", @user.pinned_micropost&.id])
+    @microposts = posts.reorder(Arel.sql(pinned)).order(created_at: :desc).paginate(page: params[:page])
+
+    # @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def new

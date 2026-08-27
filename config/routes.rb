@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy] do
     member do
       patch :pin
+      patch :unpin
     end
   end
   resources :relationships,       only: [:create, :destroy]

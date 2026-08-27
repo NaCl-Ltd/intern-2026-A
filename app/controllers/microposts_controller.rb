@@ -33,7 +33,11 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer
   end
 
-
+  def unpin
+    micropost = current_user.microposts.find_by(id: params[:id])
+    micropost.update(pinned: false) if micropost.present?
+    redirect_to request.referrer
+  end
 
   private
 
