@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag "bootstrap/css/bootstrap.min", "custom", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
+  <body class="<%= session[:theme] == 'dark' ? 'dark-theme' : 'light-theme' %>">
     <%= render 'layouts/header' %>
     <div class="container">
       <% flash.each do |message_type, message| %>

@@ -333,14 +333,25 @@ span.image {
   }
 }
 
+.theme-toggle {
+  background: var(--gray-light);
+  border: none;
+  color: var(--gray-darker);
+  font-size: 1.2em;
+  padding: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
 
-/* Dark Mode */
 
-@media (prefers-color-scheme: dark) {
-  body {
+/* dark theme */
+
+body.dark-theme {
+
     background-color: #121212;
     color: var(--gray-lighter);
-  }
+
   .stats a {
     color: var(--gray-light);
     &:hover {
@@ -411,6 +422,11 @@ span.image {
     background-color: #032c03;
     color: var(--gray-lighter);
     border-color: #444;
+  }
+
+  .theme-toggle {
+    background: #191919;
+    color: var(--gray-lighter);
   }
 
 }
