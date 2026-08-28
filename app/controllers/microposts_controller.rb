@@ -40,6 +40,9 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer
   end
 
+  def search
+    @microposts = Micropost.search_content_for(params[:q]).paginate(page: params[:page])
+  end
   private
 
     def micropost_params

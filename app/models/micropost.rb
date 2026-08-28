@@ -16,5 +16,6 @@ class Micropost < ApplicationRecord
                                       message: "must be a valid audio format" },
                       size:         { less_than: 20.megabytes,
                                       message:   "should be less than 20MB" }
-  # validates :tag, length: { maximum: 20 }
+
+  scope :search_content_for, ->(query) { where('content like ?', "%#{query}%") } #content カラムの中に query が含まれる投稿を検索、?はプレースホルダ
 end

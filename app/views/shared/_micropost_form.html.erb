@@ -3,13 +3,13 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
   <span class="image">
     <label>画像ファイルを選択:</label>
     <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
   </span>
-  <span class="audio">
+  <span class="image">
     <label>音声ファイルを選択:</label>
   <%= f.file_field :audio, accept: "audio/mpeg" %>
   </span>
+  <%= f.submit "Post", class: "btn btn-primary" %> <!--送信-->
 <% end %>

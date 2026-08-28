@@ -3,7 +3,7 @@
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="micropost"><i><font color="#707070"><%= micropost.pinned? ? "†Pinned†" : "" %></font></i></span>
   <span class="content">
-    <%= micropost.content %>
+    <%= html_with_link_to_hashtag(micropost.content) %> <!-- ハッシュタグがリンク化されたポストの内容を表示 -->
     <% if micropost.image.attached? %>
       <%= image_tag micropost.image.variant(:display) %>
     <% end %>
