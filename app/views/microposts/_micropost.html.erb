@@ -8,7 +8,9 @@
       <%= image_tag micropost.image.variant(:display) %>
     <% end %>
     <% if micropost.audio.attached? %>
-      <%= audio_tag url_for(micropost.audio), controls: true %>
+      <div class="audio-content">
+        <%= audio_tag url_for(micropost.audio), controls: true %>
+        </div>
     <% end %>
   </span>
   <span class="timestamp">

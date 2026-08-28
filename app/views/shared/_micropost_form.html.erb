@@ -9,7 +9,7 @@
   </span>
   <span class="image">
     <label>音声ファイルを選択:</label>
-  <%= f.file_field :audio, accept: "audio/mpeg" %>
+  <%= f.file_field :audio, accept: "audio/mpeg,audio/aac,audio/mp4,audio/ogg,audio/oga" %>
   </span>
   <%= f.submit "Post", class: "btn btn-primary" %> <!--送信-->
 <% end %>
