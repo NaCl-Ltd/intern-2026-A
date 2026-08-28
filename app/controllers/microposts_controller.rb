@@ -5,6 +5,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     @micropost.image.attach(params[:micropost][:image])
+    @micropost.audio.attach(params[:micropost][:audio])
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
@@ -39,10 +40,13 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer
   end
 
+  def search
+    @microposts = Micropost.search_content_for(params[:q]).paginate(page: params[:page])
+  end
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content, :image)
+      params.require(:micropost).permit(:content, :image, :audio)
     end
 
     def correct_user

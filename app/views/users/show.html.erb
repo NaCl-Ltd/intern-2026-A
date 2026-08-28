@@ -20,6 +20,8 @@
         <%= render @microposts %>
       </ol>
       <%= will_paginate @microposts %>
+    <% else %>
+      <h3>このユーザーは投稿をしていません。(業界用語で「見る専」という。)</h3>
     <% end %>
   </div>
 </div>
