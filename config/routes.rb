@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     member do
       patch :pin
       patch :unpin
+    end
+    collection do
       get :search
     end
   end
