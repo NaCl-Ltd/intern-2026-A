@@ -407,4 +407,10 @@ span.image {
     color: var(--gray-lighter);
   }
 
+  .alert.alert-success {
+    background-color: #032c03;
+    color: var(--gray-lighter);
+    border-color: #444;
+  }
+
 }
